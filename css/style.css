@@ -1,14 +1,44 @@
-body {
-  /*margin: 20px;*/
-}
-
 .section {
   padding-top: 0;
   padding-bottom: 0;
 }
 
-.introduction {
-  background: grey;
+section section {
+  height: calc(100% - 15px);
+}
+
+.introduction h4 {
+  margin-bottom: 0;
+}
+
+.introduction .card{
+  height: 100%;
+  background: url("http://www.hdbloggers.net/wp-content/uploads/2016/07/Galaxy-Wallpaper-Background.jpg");
+  color: #FFF;
+}
+
+.introduction .card p {
+  margin: 10px 0;
+}
+
+.introduction .intro {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.introduction .techStack {
+  text-align: center;
+}
+
+.introduction .techStack div {
+  margin: 2% 0;
+  height: 12vw;
+  max-height: 12vw;
+}
+
+.introduction .techStack img{
+  width: 50%;
 }
 
 .project {
@@ -23,8 +53,12 @@ body {
   height: 100%;
 }
 
-.hidden {
+.hidden,.first,.second {
   display: none;
+}
+
+.show {
+  display: block;
 }
 
 @keyframe scrollFromLeft{
