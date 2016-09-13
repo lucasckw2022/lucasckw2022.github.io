@@ -1,3 +1,14 @@
+body {
+  font-family: 'Coming Soon', cursive;
+  font-weight: 600;
+  font-size: 15px;
+}
+
+h1,h3,h4 {
+  font-family: 'Dancing Script', cursive;
+}
+
+
 .section {
   padding-top: 0;
   padding-bottom: 0;
@@ -20,6 +31,10 @@ section > .card::after{
 
 figure {
   margin-right: 0;
+}
+
+a {
+  color: #FFF;
 }
 
 .hidden {
@@ -62,7 +77,7 @@ figure {
 }
 
 .introduction .card {
-  background-image: url("http://www.hdbloggers.net/wp-content/uploads/2016/07/Galaxy-Wallpaper-Background.jpg");
+  background-image: url("https://i.ytimg.com/vi/GLtUBDxeo40/maxresdefault.jpg");
 }
 
 .introduction .card p {
@@ -70,10 +85,18 @@ figure {
   transition: top;
 }
 
-.introduction .intro {
+.introduction .card-content {
   display: flex;
   align-items: center;
+  flex-direction: column;
   height: 100%;
+}
+
+.introduction .intro {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 0 5% 0;
 }
 
 .introduction .tech-skill {
@@ -94,17 +117,17 @@ figure {
 
 .introduction .techStack div {
   margin: 2% 0;
-  height: 12vw;
-  max-height: 12vw;
+  height: 8vw;
+  max-height: 8vw;
 }
 
 .introduction .techStack img {
-  width: 50%;
+  width: 30%;
   transition: width 0.2s;
 }
 
 .introduction .techStack img:hover{
-  width: 60%;
+  width: 40%;
 }
 
 .projects .card {
@@ -121,7 +144,7 @@ figure {
   z-index: 1;
 }
 
-.projects .project-view img {
+.projects .project-view div {
   top: 0;
   left: 0;
   right: 0;
@@ -129,15 +152,43 @@ figure {
   width: 120vh;
   position: absolute;
   opacity: 0.95;
-  transform: skew(3deg,1deg);
+  transform: skew(2deg,1deg);
   transition: transform 0.4s, top 0.4s, opacity 0.4s;
+  text-align: center;
 }
 
-.projects .project-view img:hover {
+.projects .project-view div img {
+  width: 100%;
+}
+
+.projects .project-view div:hover {
   transform: skew(0deg);
   top: -6vh;
   z-index: 99 !important;
   opacity: 1;
+}
+
+.projects .project-view div:hover h3 {
+  animation-name: fadeIn;
+  animation-duration: 0.4s;
+  display: block;
+  position: absolute;
+  z-index: 1;
+  top: 35%;
+  width: 100%;
+}
+
+.projects .project-view div:hover::after {
+  content: "";
+  background: rgba(0,0,0,0.4);
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: 0;
+  animation-name: fadeIn;
+  animation-duration: 0.4s;
 }
 
 .projects .project-detail {
@@ -150,4 +201,50 @@ figure {
 
 .projects .project-detail img {
   width: 100%;
+}
+
+.projects .project-detail .highlight > li {
+  text-indent: -5px;
+}
+
+.projects .project-detail .highlight > li:before {
+  content: "-";
+  margin: 0 5px 0 0;
+}
+
+.projects .project-detail .information .title {
+  display: flex;
+}
+.projects .project-detail .information .title a {
+  cursor: pointer;
+  margin: 0 0 0 10%;
+  display: flex;
+  align-items: center;
+}
+.projects .project-detail .information .title i {
+  transition: color 0.3s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.projects .project-detail .information .title a:hover * {
+  color: #5F5F5F;
+}
+
+.projects .project-detail .information .title a:hover p {
+  font-size: 12px;
+  color: #FFF;
+  display: block;
+  position: absolute;
+  animation-name: fadeIn;
+  animation-duration: 1s;
+}
+
+.projects .project-detail .information .title .website p {
+  margin-left: -12px;
+}
+
+.projects .project-detail .information .title .github p {
+  margin-left: -19px;
 }

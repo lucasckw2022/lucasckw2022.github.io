@@ -10,7 +10,7 @@ $(document).ready(function() {
         }
         else if (index == 3){
           createProjectsView();
-          $(".project-view").on("click","img", function(){createProjectsDetailView($(this).attr("class"))});
+          $(".project-view").on("click","div", function(){createProjectsDetailView($(this).attr("class"))});
         }
       },
       onLeave: (index, nextIndex, direction)=>{
@@ -65,7 +65,7 @@ var createTechstackSection = ()=>{
   $(".introduction .card").fadeIn().toggleClass("hidden");
   var delay=0;
   introduction.technology.map((item)=>{
-    var content = '<div class="col s3 transperant '+item[1]+'"><img src="images/introduction/'+ item[1] +'.png" /><p>'+ item[0] +'</p></div>';
+    var content = '<div class="col s2 transperant '+item[1]+'"><img src="images/introduction/'+ item[1] +'.png" /><p>'+ item[0] +'</p></div>';
     $('.techStack').append(content);
     setTimeout(()=>{hideElement("."+item[1])},delay+=100);
   })
@@ -74,12 +74,12 @@ var createTechstackSection = ()=>{
 var createProjectsView = ()=>{
   $(".projects .card-content").append('<figure class="project-view"></figure>');
   $(".projects .card").fadeIn().toggleClass("hidden");
-  var cssLeft = 0, cssZIndex = projects.length;
+  var cssLeft = -5, cssZIndex = projects.length;
   projects.map((project)=>{
     var name = project.name.toLowerCase().replace(" ","-");
-    $(".projects .project-view").append('<img class="'+ name +'" src="'+ project.url +'" />');
+    $(".projects .project-view").append('<div class="'+ name +'"><img src="'+ project.imgurl +'" /><h3 class="hidden">'+ project.name +'</h3></div>');
     $("."+name).css({"left":cssLeft+"vw","z-index":cssZIndex});
-    cssLeft += 15;
+    cssLeft += 20;
     cssZIndex--;
   })
 }
@@ -89,13 +89,13 @@ var createProjectsDetailView = (imgClass)=>{
     setTimeout(()=>{$(".project-view").remove()},1100);
     $(".projects .card-content").append('<div class="project-detail hidden"></div>');
     $(".project-detail").append('<ul class="tabs"></ul>')
-    setTimeout(()=>{$(".project-detail").fadeIn().toggleClass("hidden");},400);
+    setTimeout(()=>{$(".project-detail").fadeIn().toggleClass("hidden");$('.project-detail .tabs').tabs('select_tab', imgClass);},400);
     projects.map((project)=>{
       var name = project.name.toLowerCase().replace(" ","-");
       $(".project-detail .tabs").append('<li class="tab col s'+(12/projects.length)+'"><a class="'+ (name == imgClass? "active": "") +'" href="#'+ name +'">'+ project.name +'</li>')
       $(".project-detail .tabs").after('<div id="'+ name +'" class="col s12"></div>')
-      $("#"+name).append('<figure class="col s6"><img src="'+ project.url +'"</figure>').append('<article class="col s6"><h4>'+ project.name +'</h4></article>')
+      $("#"+name).append('<figure class="col s6"><img src="'+ project.imgurl +'"</figure>').append('<article class="information col s6"><div class="title"><h4>'+ project.name +'</h4><a class="website" href="'+ project.url +'" target="_blank"><i class="fa fa-external-link-square fa-3x"><p class="hidden">Link To App</p></i></a><a class="github" href="'+ project.github +'" target="_blank"><i class="fa fa-github fa-3x"><p class="hidden">Link To GitHub</p></i></a></div><p>'+ project.description +'</p><ul class="highlight"></ul><p>Technologies: <br />'+ project.technologies +'</p></article>');
+      project.highlight.map((list)=>{$("#"+name+"  .highlight").append('<li>'+list+'</li>')});
     })
-    $('.project-detail .tabs').tabs()
-    // $('.project-detail .tabs').tabs('select_tab', imgClass);
+    $('.project-detail .tabs').tabs();
   }
