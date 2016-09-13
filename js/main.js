@@ -25,7 +25,7 @@ $(document).ready(function() {
       }
     });
 
-    $(".title").textillate();
+    $(".home .title").textillate();
 });
 
 //preload images
@@ -94,8 +94,13 @@ var createProjectsDetailView = (imgClass)=>{
       var name = project.name.toLowerCase().replace(" ","-");
       $(".project-detail .tabs").append('<li class="tab col s'+(12/projects.length)+'"><a class="'+ (name == imgClass? "active": "") +'" href="#'+ name +'">'+ project.name +'</li>')
       $(".project-detail .tabs").after('<div id="'+ name +'" class="col s12"></div>')
-      $("#"+name).append('<figure class="col s6"><img src="'+ project.imgurl +'"</figure>').append('<article class="information col s6"><div class="title"><h4>'+ project.name +'</h4><a class="website" href="'+ project.url +'" target="_blank"><i class="fa fa-external-link-square fa-3x"><p class="hidden">Link To App</p></i></a><a class="github" href="'+ project.github +'" target="_blank"><i class="fa fa-github fa-3x"><p class="hidden">Link To GitHub</p></i></a></div><p>'+ project.description +'</p><ul class="highlight"></ul><p>Technologies: <br />'+ project.technologies +'</p></article>');
-      project.highlight.map((list)=>{$("#"+name+"  .highlight").append('<li>'+list+'</li>')});
+      $("#"+name).append('<figure class="col s6"><img src="'+ project.imgurl +'"</figure>').append('<article class="information col s6"><div class="title"><h4>'+ project.name +'</h4><a class="website" href="'+ project.url +'" target="_blank"><i class="fa fa-external-link-square fa-3x"><p class="hidden">Link To App</p></i></a><a class="github" href="'+ project.github +'" target="_blank"><i class="fa fa-github fa-3x"><p class="hidden">Link To GitHub</p></i></a></div><p>'+ project.description +'</p><ul class="highlight"></ul><p class="techstack">Technologies: <br /></p></article>');
+      project.highlight.map((list)=>{
+        $("#"+ name +"  .highlight").append('<li>'+list+'</li>')
+      });
+      project.technologies.map((tech)=>{
+        $("#"+ name +" .techstack").append('<figure class="col s2"><img src="images/introduction/'+ tech[1] +'.png" /><p>'+ tech[0] +'</p></figure>')
+      })
     })
     $('.project-detail .tabs').tabs();
   }

@@ -25,7 +25,11 @@ var projects = [
       "Data only refresh after changing month, create and modify memos.",
       "Gulp to transform jsx and scss files."
     ],
-    "technologies": "React.js, Node.js, MongoDB, Express.js, Gulp, Sass and Materialize.css"},
+    "technologies": [
+      ['React','react'],
+      ['Sass','sass'],
+      ['Materialize','materialize']
+    ]},
   { "name": "Cloth Road",
     "url": "https://lucas-cloth-road.herokuapp.com/",
     "github": "https://github.com/lucasckw2022/Cloth-Road",
@@ -35,5 +39,8 @@ var projects = [
       "Users can also communicate through the website community forum.",
       "Photos status and photo sources are manageable through the admin page."
     ],
-    "technologies": "React.js (React-router, React-Bootstrap, ES6) and Ruby on Rails (Backend and API)"}
+    "technologies": [
+      ['React','react'],
+      ['Ruby on Rails','rails']
+    ]}
 ]
