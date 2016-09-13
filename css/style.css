@@ -7,24 +7,85 @@ section section {
   height: calc(100% - 15px);
 }
 
-.introduction h4 {
+section > .card::after{
+  content: "";
+  background: rgba(0,0,0,0.4);
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: 0;
+}
+
+figure {
+  margin-right: 0;
+}
+
+.hidden {
+  display: none;
+}
+
+.transperant {
+  opacity: 0;
+}
+
+.fade-in {
+  animation-name: fadeIn;
+  animation-duration: 2.5s;
+}
+
+.show {
+  display: block;
+}
+
+@keyframes fadeIn{
+  0% {opacity: 0}
+  100% {opacity: 1}
+}
+
+.card {
+  height: 100%;
+  background-size: cover;
+  color: #FFF;
+}
+
+.container{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.introduction h1 {
   margin-bottom: 0;
 }
 
-.introduction .card{
-  height: 100%;
-  background: url("http://www.hdbloggers.net/wp-content/uploads/2016/07/Galaxy-Wallpaper-Background.jpg");
-  color: #FFF;
+.introduction .card {
+  background-image: url("http://www.hdbloggers.net/wp-content/uploads/2016/07/Galaxy-Wallpaper-Background.jpg");
 }
 
 .introduction .card p {
   margin: 10px 0;
+  transition: top;
 }
 
 .introduction .intro {
   display: flex;
   align-items: center;
   height: 100%;
+}
+
+.introduction .tech-skill {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+    align-items: center;
+}
+
+.introduction article > * {
+  z-index: 1;
 }
 
 .introduction .techStack {
@@ -37,30 +98,56 @@ section section {
   max-height: 12vw;
 }
 
-.introduction .techStack img{
+.introduction .techStack img {
   width: 50%;
+  transition: width 0.2s;
 }
 
-.project {
-  background: red;
-  height: 50%;
+.introduction .techStack img:hover{
+  width: 60%;
 }
 
-.container{
+.projects .card {
+  background-image: url("http://orig08.deviantart.net/5704/f/2014/053/6/5/free_space_galaxy_texture_by_lyshastra-d77gh18.jpg");
+}
+
+.projects .card-content {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
+  flex-direction: column;
 }
 
-.hidden,.first,.second {
-  display: none;
+.projects .card-content h3 {
+  align-self: center;
+  z-index: 1;
 }
 
-.show {
-  display: block;
+.projects .project-view img {
+  top: 0;
+  left: 0;
+  right: 0;
+  margin: 24vh auto;
+  width: 120vh;
+  position: absolute;
+  opacity: 0.95;
+  transform: skew(3deg,1deg);
+  transition: transform 0.4s, top 0.4s, opacity 0.4s;
 }
 
-@keyframe scrollFromLeft{
-  0% {}
+.projects .project-view img:hover {
+  transform: skew(0deg);
+  top: -6vh;
+  z-index: 99 !important;
+  opacity: 1;
+}
+
+.projects .project-detail {
+  z-index: 1;
+}
+
+.projects .project-detail .tabs {
+  background-color: transparent;
+}
+
+.projects .project-detail img {
+  width: 100%;
 }
