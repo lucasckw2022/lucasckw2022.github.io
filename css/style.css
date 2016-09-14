@@ -1,7 +1,7 @@
 body {
-  font-family: 'Coming Soon', cursive;
+  /*font-family: 'Coming Soon', cursive;*/
   font-weight: 600;
-  font-size: 15px;
+  /*font-size: 15px;*/
 }
 
 h1,h3,h4 {
@@ -19,7 +19,7 @@ section section {
 
 section > .card::after{
   content: "";
-  background: rgba(0,0,0,0.4);
+  background: rgba(0,0,0,0.55);
   top: 0;
   left: 0;
   bottom: 0;
@@ -89,11 +89,8 @@ a {
   transition: top;
 }
 
-.introduction .card-content {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  height: 100%;
+.introduction .card-content * {
+  z-index: 1;
 }
 
 .introduction .intro {
@@ -104,7 +101,7 @@ a {
 
 .introduction .title {
   width: 100%;
-  height: 160px;
+  margin: 0 0 2% 0;
   display: flex;
   align-items: baseline;
   justify-content: center;
@@ -125,6 +122,18 @@ a {
     height: 100%;
     align-items: center;
 }
+
+/*.introduction .tech-skill .techStack ::after{
+  content: "";
+  background: rgba(255,255,255,0.8);
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: 2;
+  border-radius: 10px;
+}*/
 
 .introduction article > * {
   z-index: 1;
@@ -270,13 +279,29 @@ a {
 
 .projects .techstack figure {
   margin: 2% 3% 0 3%;
+  height: 10vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
+}
+
+.projects .techstack figure img {
+  width: 35%;
+  margin: 0 0 5% 0;
   transition: width 0.4s;
 }
 
-.projects .techstack figure:hover {
-  width: 18%;
+.projects .techstack figure:hover img{
+  width: 40%;
+}
+
+@media screen and (max-width: 780px) {
+  .card {
+    height: 160%;
+  }
+
+  .projects .project-view div {
+    width: 75%;
+  }
 }
