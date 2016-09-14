@@ -2,31 +2,46 @@ $(document).ready(function() {
     // preload(
     // introduction.technology.forEach((item)=>{var list = "images/introduction/"+ item[1] +".png"})
     // )
+    $(window).resize(()=>{
+      if($(window).width() < 600){location.reload()}
+    })
+    if($(window).width() < 600){
+      var autoScroll = false;
+    } else{
+      var autoScroll = true;
+    }
     $('#content').fullpage({
+      navigation: true,
       responsiveHeight: 1,
       scrollingSpeed: 400,
+      autoScrolling: autoScroll,
       afterLoad: (anchorLink, index)=>{
-        if(index == 2){
+        if(index == 1){
+          $("#fp-nav ul li a span").css("background","#333");
+        }
+        else if(index == 2){
           createTechstackSection();
+          $("#fp-nav ul li a span").css("background","#FFF");
         }
         else if (index == 3){
           createProjectsView();
+          $("#fp-nav ul li a span").css("background","#FFF");
           $(".project-view").on("click","div", function(){createProjectsDetailView($(this).attr("class"))});
         }
       },
       onLeave: (index, nextIndex, direction)=>{
         if(index == 2){
-          $(".introduction .card").fadeOut().toggleClass("hidden")
+          $("#introduction .card").fadeOut().toggleClass("hidden")
           $(".techStack").fadeOut().remove();
         } else if (index == 3){
-          $(".projects .card").fadeOut().toggleClass("hidden")
+          $("#projects .card").fadeOut().toggleClass("hidden")
           $(".project-view").fadeOut().remove();
           $(".project-detail").fadeOut().remove();
         }
       }
     });
 
-    $(".home .title").textillate();
+    $("#home .title").textillate();
 });
 
 //preload images
@@ -63,7 +78,7 @@ var createTechstackSection = ()=>{
   $(".tech-skill p").after(
   '<div class="techStack col s12"></div>'
   );
-  $(".introduction .card").fadeIn().toggleClass("hidden");
+  $("#introduction .card").fadeIn().toggleClass("hidden");
   var delay=0;
   introduction.technology.map((item)=>{
     var content = '<div class="col s4 m2 transperant '+item[1]+'"><img src="images/introduction/'+ item[1] +'.png" /><p>'+ item[0] +'</p></div>';
@@ -73,12 +88,12 @@ var createTechstackSection = ()=>{
 }
 
 var createProjectsView = ()=>{
-  $(".projects .card-content").append('<figure class="project-view"></figure>');
-  $(".projects .card").fadeIn().toggleClass("hidden");
+  $("#projects .card-content").append('<figure class="project-view"></figure>');
+  $("#projects .card").fadeIn().toggleClass("hidden");
   var cssLeft = -5, cssZIndex = projects.length;
   projects.map((project)=>{
     var name = project.name.toLowerCase().replace(" ","-");
-    $(".projects .project-view").append('<div class="'+ name +'"><img src="images/projects/'+ project.imgurl +'.JPG" /><h3 class="hidden">'+ project.name +'</h3></div>');
+    $("#projects .project-view").append('<div class="'+ name +'"><img src="images/projects/'+ project.imgurl +'.JPG" /><h3 class="hidden">'+ project.name +'</h3></div>');
     $("."+name).css({"left":cssLeft+"vw","z-index":cssZIndex});
     cssLeft += 20;
     cssZIndex--;
@@ -88,7 +103,7 @@ var createProjectsView = ()=>{
 var createProjectsDetailView = (imgClass)=>{
     $(".project-view").fadeOut();
     setTimeout(()=>{$(".project-view").remove()},1100);
-    $(".projects .card-content").append('<div class="project-detail hidden"></div>');
+    $("#projects .card-content").append('<div class="project-detail hidden"></div>');
     $(".project-detail").append('<ul class="tabs"></ul>')
     setTimeout(()=>{$(".project-detail").fadeIn().toggleClass("hidden");$('.project-detail .tabs').tabs('select_tab', imgClass);},400);
     projects.map((project)=>{
