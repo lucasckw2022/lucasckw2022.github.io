@@ -5,7 +5,10 @@ var introduction = {
     ['JQuery','jquery'],
     ['Ruby','ruby'],
     ['Ruby on Rails','rails'],
+    ['Node.JS','node'],
+    ['Express.JS','express'],
     ['PostgreSQL','postgresql'],
+    ['MongoDB','mongodb'],
     ['GitHub','github'],
     ['HTML','html'],
     ['CSS','css'],
@@ -19,7 +22,7 @@ var projects = [
   { "name": "MemoUD",
     "url": "http://memoud.herokuapp.com/",
     "github": "https://github.com/lucasckw2022/memoUD",
-    "imgurl": "http://i.imgur.com/Hq3Ns2W.png",
+    "imgurl": "memoud",
     "description": "A Calendar ReactJS application which allow you to add memos for your day.",
     "highlight": [
       "Data only refresh after changing month, create and modify memos.",
@@ -27,13 +30,16 @@ var projects = [
     ],
     "technologies": [
       ['React','react'],
+      ['Node.JS','node'],
+      ['Express.JS','express'],
+      ['Gulp','gulp'],
       ['Sass','sass'],
       ['Materialize','materialize']
     ]},
   { "name": "Cloth Road",
     "url": "https://lucas-cloth-road.herokuapp.com/",
     "github": "https://github.com/lucasckw2022/Cloth-Road",
-    "imgurl": "http://image.slidesharecdn.com/materializecss-150705150604-lva1-app6892/95/materializecss-7-638.jpg?cb=1436108805",
+    "imgurl": "cloth_road",
     "description": "A photo-driven single page website which gets the latest images from different fashion-focused Facebook pages.",
     "highlight": [
       "Users can also communicate through the website community forum.",
