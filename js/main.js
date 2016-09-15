@@ -57,20 +57,18 @@ var preload = function() {
 
 var hiddenElement = (tag)=>{
   if($(tag).hasClass("hidden")){
-    $(tag).fadeIn().toggleClass("hidden")
+    $(tag).fadeIn().removeClass("hidden")
   } else {
-    $(tag).fadeOut().toggleClass("hidden")
+    $(tag).fadeOut().addClass("hidden")
   }
 }
 
 var hideElement = (tag)=>{
   if($(tag).hasClass("transperant")){
-    $(tag).toggleClass("fade-in")
+    $(tag).addClass("fade-in")
     setTimeout(()=>{
-      $(tag).toggleClass("transperant fade-in")
+      $(tag).removeClass("transperant fade-in")
     },2000)
-  } else {
-    $(tag).toggleClass("fade-in")
   }
 }
 
@@ -110,7 +108,7 @@ var createProjectsDetailView = (imgClass)=>{
       var name = project.name.toLowerCase().replace(" ","-");
       $(".project-detail .tabs").append('<li class="tab col s'+(12/projects.length)+'"><a class="'+ (name == imgClass? "active": "") +'" href="#'+ name +'">'+ project.name +'</li>')
       $(".project-detail .tabs").after('<div id="'+ name +'" class="col s12"></div>')
-      $("#"+name).append('<figure class="col s12 m6"><img src="images/projects/'+ project.imgurl +'.JPG"</figure>').append('<article class="information col s12 m6"><div class="title"><h4>'+ project.name +'</h4><a class="website" href="'+ project.url +'" target="_blank"><i class="fa fa-external-link-square fa-3x"><p class="hidden">Link To App</p></i></a><a class="github" href="'+ project.github +'" target="_blank"><i class="fa fa-github fa-3x"><p class="hidden">Link To GitHub</p></i></a></div><p>'+ project.description +'</p><ul class="highlight"></ul><p class="techstack">Technologies: <br /></p></article>');
+      $("#"+name).append('<figure class="col s12 m6"><img src="images/projects/'+ project.imgurl +'.JPG"</figure>').append('<article class="information col s12 m6"><div class="title"><h4>'+ project.name +'</h4><a class="website" href="'+ project.url +'" target="_blank"><i class="fa fa-external-link-square fa-3x"></i></a><a class="github" href="'+ project.github +'" target="_blank"><i class="fa fa-github fa-3x"></i></a></div><p>'+ project.description +'</p><ul class="highlight"></ul><p class="techstack">Technologies: <br /></p></article>');
       project.highlight.map((list)=>{
         $("#"+ name +"  .highlight").append('<li>'+list+'</li>')
       });

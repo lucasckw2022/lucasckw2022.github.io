@@ -122,18 +122,6 @@ a {
     align-items: center;
 }
 
-/*#introduction .tech-skill .techStack ::after{
-  content: "";
-  background: rgba(255,255,255,0.8);
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  position: absolute;
-  z-index: 2;
-  border-radius: 10px;
-}*/
-
 #introduction article > * {
   z-index: 1;
 }
@@ -182,6 +170,7 @@ a {
   transform: skew(2deg,1deg);
   transition: transform 0.4s, top 0.4s, opacity 0.4s;
   text-align: center;
+  cursor: pointer;
 }
 
 #projects .project-view div img {
@@ -266,14 +255,6 @@ a {
   position: absolute;
   animation-name: fadeIn;
   animation-duration: 1s;
-}
-
-#projects .project-detail .information .title .website p {
-  margin-left: -12px;
-}
-
-#projects .project-detail .information .title .github p {
-  margin-left: -19px;
 }
 
 #projects .techstack figure {
