@@ -16,7 +16,7 @@ section section {
   height: calc(100% - 15px);
 }
 
-section > .card::after{
+section > .card::after {
   content: "";
   background: rgba(0,0,0,0.55);
   top: 0;
@@ -32,6 +32,14 @@ figure {
 }
 
 a {
+  color: #FFF;
+}
+
+a.email {
+  color: #EE6E73;
+}
+
+a.email:hover {
   color: #FFF;
 }
 
@@ -63,7 +71,7 @@ a {
   color: #FFF;
 }
 
-.container{
+.container {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -141,7 +149,7 @@ a {
   transition: width 0.2s;
 }
 
-#introduction .techStack img:hover{
+#introduction .techStack img:hover {
   width: 35%;
 }
 
@@ -272,7 +280,7 @@ a {
   transition: width 0.4s;
 }
 
-#projects .techstack figure:hover img{
+#projects .techstack figure:hover img {
   width: 40%;
 }
 
