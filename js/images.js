@@ -1,6 +1,7 @@
 var introduction = {
   "technology": [
     ['React','react'],
+    ['Angular.JS','angular'],
     ['Javascript','js'],
     ['JQuery','jquery'],
     ['Ruby','ruby'],
@@ -19,6 +20,22 @@ var introduction = {
 }
 
 var projects = [
+  { "name": "Iot Tweet Corner",
+    "url": "https://iot-tweet-corner.herokuapp.com/",
+    "github": "https://github.com/lucasckw2022/iot-tweet-corner",
+    "imgurl": "iot_tweet",
+    "description": "An Angular tweet search application which you could find tweets with #iot. A challenge completed in two days.",
+    "highlight": [
+      "Show / hide images by checking the check box.",
+      "Express.js to handle CORS and twitter API and create API for angular."
+    ],
+    "technologies": [
+      ['Angular.JS','angular'],
+      ['Node.JS','node'],
+      ['Express.JS','express'],
+      ['Gulp','gulp'],
+      ['Sass','sass'],
+    ]},
   { "name": "MemoUD",
     "url": "http://memoud.herokuapp.com/",
     "github": "https://github.com/lucasckw2022/memoUD",

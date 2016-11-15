@@ -90,7 +90,7 @@ var createProjectsView = ()=>{
   $("#projects .card").fadeIn().toggleClass("hidden");
   var cssLeft = -5, cssZIndex = projects.length;
   projects.map((project)=>{
-    var name = project.name.toLowerCase().replace(" ","-");
+    var name = project.name.toLowerCase().replace(/ /g,"-");
     $("#projects .project-view").append('<div class="'+ name +'"><img src="images/projects/'+ project.imgurl +'.JPG" /><h3 class="hidden">'+ project.name +'</h3></div>');
     $("."+name).css({"left":cssLeft+"vw","z-index":cssZIndex});
     cssLeft += 20;
@@ -105,7 +105,7 @@ var createProjectsDetailView = (imgClass)=>{
     $(".project-detail").append('<ul class="tabs"></ul>')
     setTimeout(()=>{$(".project-detail").fadeIn().toggleClass("hidden");$('.project-detail .tabs').tabs('select_tab', imgClass);},400);
     projects.map((project)=>{
-      var name = project.name.toLowerCase().replace(" ","-");
+      var name = project.name.toLowerCase().replace(/ /g,"-");
       $(".project-detail .tabs").append('<li class="tab col s'+(12/projects.length)+'"><a class="'+ (name == imgClass? "active": "") +'" href="#'+ name +'">'+ project.name +'</li>')
       $(".project-detail .tabs").after('<div id="'+ name +'" class="col s12"></div>')
       $("#"+name).append('<figure class="col s12 m6"><img src="images/projects/'+ project.imgurl +'.JPG"</figure>').append('<article class="information col s12 m6"><div class="title"><h4>'+ project.name +'</h4><a class="website" href="'+ project.url +'" target="_blank"><i class="fa fa-external-link-square fa-3x"></i></a><a class="github" href="'+ project.github +'" target="_blank"><i class="fa fa-github fa-3x"></i></a></div><p>'+ project.description +'</p><ul class="highlight"></ul><p class="techstack">Technologies: <br /></p></article>');
