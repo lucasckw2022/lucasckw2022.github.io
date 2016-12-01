@@ -88,7 +88,7 @@ var createTechstackSection = ()=>{
 var createProjectsView = ()=>{
   $("#projects .card-content").append('<figure class="project-view"></figure>');
   $("#projects .card").fadeIn().toggleClass("hidden");
-  var cssLeft = -5, cssZIndex = projects.length;
+  var cssLeft = -20, cssZIndex = projects.length;
   projects.map((project)=>{
     var name = project.name.toLowerCase().replace(/ /g,"-");
     $("#projects .project-view").append('<div class="'+ name +'"><img src="images/projects/'+ project.imgurl +'.JPG" /><h3 class="hidden">'+ project.name +'</h3></div>');
